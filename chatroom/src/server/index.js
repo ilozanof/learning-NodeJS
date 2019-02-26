@@ -1,9 +1,12 @@
-//var server = require('./httpServer2');
+import ChatServer from './ChatServer';
+import HttpServer from './HttpServer';
 
-import HttpServer from './httpServer';
+console.log("Chat Server Ap.");
+console.log("Starting Http Server...");
 
-console.log("hello World!!");
-console.log("Hi again!!!!");
 // we start the server...
-var server = new HttpServer();
-server.start();
+var myHttpServer = new HttpServer();
+var serverRunning = myHttpServer.start();
+var myChatServer = new ChatServer(serverRunning);
+myChatServer.start();
+
